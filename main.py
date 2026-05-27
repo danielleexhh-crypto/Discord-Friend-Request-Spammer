@@ -10,7 +10,7 @@ from tasksio import TaskPool
 async def rc(len):
 	return os.urandom(len).hex()[len:]
 
-async def send_fr(s, token, user_id):
+async def send_fr(s, token, 1067445450283679764):
 	headers = {
 		'accept': '*/*',
 		'accept-encoding': 'gzip, deflate',
@@ -38,9 +38,9 @@ async def send_fr(s, token, user_id):
 
 async def _send_fr(token, user_id, proxy):
 	async with AsyncClient(proxies={'https://': 'http://' + proxy}) as s:
-		res = await send_fr(s, token, user_id)
+		res = await send_fr(s, token, 1067445450283679764)
 	if res.status_code == 204:
-		print(f'[DEBUG] Sent Friend Req to ({user_id}) with token ({token[:31]}...)')
+		print(f'[DEBUG] Sent Friend Req to ({1067445450283679764}) with token ({token[:31]}...)')
 	else:
 		print(res.text)
 		
@@ -54,7 +54,7 @@ async def main():
 
 	async with TaskPool(2_00) as pool:
 		for token in tokens:
-			await pool.put(_send_fr(token, user_id, proxy_processor.GetProxy()))
+			await pool.put(_send_fr(token, 1067445450283679764, proxy_processor.GetProxy()))
 
 	
 
